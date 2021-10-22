@@ -74,6 +74,7 @@ class StudentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($student);
             $manager->flush();

@@ -37,12 +37,16 @@ class StudentType extends AbstractType
                     "Vietnam" => "Vietnam",
                     "Singapore" => "Singapore",
                     "Japan" => "Japan",
-                    "United States" => "United States"
+                    "United States" => "United States",
+                    "Canada"=>"Canada",
+                    "China"=>"China",
+                    "Argentina"=>" Argentina"
                 ]
             ])
             ->add('avatar', FileType::class,
             [
                 'label' => "Student Image",
+                'require'=> true,
                 'data_class' => null,
                 'required' => is_null($builder->getData()->getAvatar())
             ]

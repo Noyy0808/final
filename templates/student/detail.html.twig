@@ -25,7 +25,7 @@
             <td>{{ student.name }}</td>
             <td>{{ student.birthday|date('d/m/Y') }}</td>
             <td>{{ student.nationality}}</td>
-            <td><img src="{{ asset('images/'~student.avatar) }}" width="50" height="50"alt="avatar"></td>
+            <td><img src="{{ asset('image/student/'~student.avatar) }}" width="50" height="50"alt="avatar"></td>
             <td>
 						{% for a in student.course %}
 							<a href="{{ path('course_detail', {'id': a.id }) }}">
