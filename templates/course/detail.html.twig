@@ -4,29 +4,40 @@
 
 {% block body %}
 <div class="container">
-   <h4 class="text-primary text-center">course manager</h4>
+   <h4 class="text-primary text-center">courses manager</h4>
    <a class="btn btn-outline-primary" href="{{ path('course_add') }}">add course</a>
    <table class="table table-striped text-center">
       <thead>
          <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>Subject</th>
             <th>Actions</th>
          </tr>
       </thead>
       <tbody>
-      {% for course in courses %}
           <tr>
             <td>{{ course.id }}</td>
             <td>{{ course.name }}</td>
+            <td>{{ course.startdate|date('d/m/Y') }}</td>
+            <td>{{ course.enddate|date('d/m/Y') }}</td>
             <td>
-               <a class="btn btn-info" href="{{ path('course_detail', {'id' : course.id }) }}">DETAIL</a>
+						{% for a in course.subject %}
+							<a href="{{ path('subject_detail', {'id': a.id }) }}">
+								{{ a.name }}
+							</a>
+							<br>
+						{% endfor %}
+				</td>
+            <td>
                <a class="btn btn-primary" href="{{ path('course_edit', {'id': course.id }) }}">EDIT</a>
                <a class="btn btn-warning" href="{{ path('course_delete', {'id': course.id }) }}"
-               onclick="return confirm('Are you sure to delete this course ?')">DELETE</a>
+               onclick="return confirm('Are you sure to delete this course ?')">
+               DELETE</a>
             </td>
-         </tr>
-      {% endfor %}     
+         </tr> 
       </tbody>
    </table>
 </div>

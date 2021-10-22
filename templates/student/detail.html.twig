@@ -4,29 +4,44 @@
 
 {% block body %}
 <div class="container">
-   <h4 class="text-primary text-center">student manager</h4>
+   <h4 class="text-primary text-center">students manager</h4>
    <a class="btn btn-outline-primary" href="{{ path('student_add') }}">add student</a>
    <table class="table table-striped text-center">
       <thead>
          <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>Avatar</th>
+            <th>Course</th>
             <th>Actions</th>
+            
          </tr>
       </thead>
       <tbody>
-      {% for student in students %}
           <tr>
             <td>{{ student.id }}</td>
             <td>{{ student.name }}</td>
+            <td>{{ student.birthday|date('d/m/Y') }}</td>
+            <td>{{ student.nationality}}</td>
+            <td><img src="{{ asset('images/'~student.avatar) }}" width="50" height="50"alt="avatar"></td>
             <td>
-               <a class="btn btn-info" href="{{ path('student_detail', {'id' : student.id }) }}">DETAIL</a>
+						{% for a in student.course %}
+							<a href="{{ path('course_detail', {'id': a.id }) }}">
+								{{ a.name }}
+							</a>
+							<br>
+						{% endfor %}
+				</td>
+
+            <td>
                <a class="btn btn-primary" href="{{ path('student_edit', {'id': student.id }) }}">EDIT</a>
                <a class="btn btn-warning" href="{{ path('student_delete', {'id': student.id }) }}"
-               onclick="return confirm('Are you sure to delete this student ?')">DELETE</a>
+               onclick="return confirm('Are you sure to delete this student ?')">
+               DELETE</a>
             </td>
-         </tr>
-      {% endfor %}     
+         </tr> 
       </tbody>
    </table>
 </div>

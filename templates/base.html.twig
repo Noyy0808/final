@@ -15,6 +15,9 @@
         {% endblock %}
     </head>
     <body>
+        <div class="header ">
+        <img style="width:30%;height:20%;" src="https://cms.greenwich.edu.vn/pluginfile.php/1/theme_adaptable/logo/1627617472/RGB_Logo%20DH%20Greenwich%20%28VN%291.jpg"
+        </div>
         <div class="container col-md-10 mt-3">
             {% for message in app.flashes ('Error')%}
                 <p class="alert alert-danger">{{message}}</p>
