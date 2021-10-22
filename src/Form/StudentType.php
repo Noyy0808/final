@@ -46,7 +46,6 @@ class StudentType extends AbstractType
             ->add('avatar', FileType::class,
             [
                 'label' => "Student Image",
-                'require'=> true,
                 'data_class' => null,
                 'required' => is_null($builder->getData()->getAvatar())
             ]
