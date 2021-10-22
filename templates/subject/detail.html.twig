@@ -4,29 +4,40 @@
 
 {% block body %}
 <div class="container">
-   <h4 class="text-primary text-center">subject manager</h4>
+   <h4 class="text-primary text-center">subjects manager</h4>
    <a class="btn btn-outline-primary" href="{{ path('subject_add') }}">add subject</a>
    <table class="table table-striped text-center">
       <thead>
          <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Code</th>
+            <th>Price</th>
             <th>Actions</th>
          </tr>
       </thead>
       <tbody>
-      {% for subject in subjects %}
           <tr>
             <td>{{ subject.id }}</td>
-            <td>{{ subject.name }}</td>
+            <td>{{ subject.name}}</td>
+            <td>{{ subject.code}}</td>
+            <td>{{ subject.price}}$</td>
             <td>
-               <a class="btn btn-info" href="{{ path('subject_detail', {'id' : subject.id }) }}">DETAIL</a>
+						{% for a in course.subjects %}
+							<a href="{{ path('course_detail', {'id': a.id }) }}">
+								{{ a.name }}
+							</a>
+							<br>
+						{% endfor %}
+					</td>
+            <td>
+            <td> 
                <a class="btn btn-primary" href="{{ path('subject_edit', {'id': subject.id }) }}">EDIT</a>
                <a class="btn btn-warning" href="{{ path('subject_delete', {'id': subject.id }) }}"
-               onclick="return confirm('Are you sure to delete this subject ?')">DELETE</a>
+               onclick="return confirm('Are you sure to delete this subject ?')">
+               DELETE</a>
             </td>
-         </tr>
-      {% endfor %}     
+         </tr> 
       </tbody>
    </table>
 </div>
