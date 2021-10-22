@@ -22,15 +22,6 @@
             <td>{{ subject.name}}</td>
             <td>{{ subject.code}}</td>
             <td>{{ subject.price}}$</td>
-            <td>
-						{% for a in course.subjects %}
-							<a href="{{ path('course_detail', {'id': a.id }) }}">
-								{{ a.name }}
-							</a>
-							<br>
-						{% endfor %}
-					</td>
-            <td>
             <td> 
                <a class="btn btn-primary" href="{{ path('subject_edit', {'id': subject.id }) }}">EDIT</a>
                <a class="btn btn-warning" href="{{ path('subject_delete', {'id': subject.id }) }}"
