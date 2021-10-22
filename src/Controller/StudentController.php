@@ -6,7 +6,12 @@ use App\Entity\Student;
 use App\Form\StudentType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+/**
+ * @IsGranted("ROLE_USER")
+ */
 
 class StudentController extends AbstractController
 {
@@ -43,6 +48,7 @@ class StudentController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/student/delete/{id}", name = "student_delete")
      */
     public function studentDelete ($id) {
@@ -63,6 +69,7 @@ class StudentController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/student/add", name = "student_add")
      */
     public function studentAdd (Request $request) 
@@ -92,6 +99,7 @@ class StudentController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/student/edit/{id}", name = "student_edit")
      */
     public function studentEdit (Request $request, $id) 
