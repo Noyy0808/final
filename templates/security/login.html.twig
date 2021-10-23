@@ -6,11 +6,12 @@
 
 {% block body %}
 <div class="container col-5 mt-5 text-center">
-    <div class="container-fluid">
+        <div class="container-fluid">
     {% for mesage in app.session.flashbag.get('Error') %}
         <p class="alert alert-danger text-uppercase text-center">{{ mesage }} </p>    
     {% endfor %}
     </div> 
+
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

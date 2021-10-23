@@ -15,7 +15,10 @@
             <th>Price</th>
             <th>Avatar</th>
             <th>Course</th>
+            {% if is_granted('ROLE_ADMIN')%}
             <th>Actions</th>
+            {% else %}
+            {% endif %}
             
          </tr>
       </thead>
@@ -36,11 +39,13 @@
 				</td>
 
             <td>
+                {% if is_granted('ROLE_ADMIN')%}
                <a class="btn btn-primary" href="{{ path('student_edit', {'id': student.id }) }}">EDIT</a>
                <a class="btn btn-warning" href="{{ path('student_delete', {'id': student.id }) }}"
-               onclick="return confirm('Are you sure to delete this student ?')">
-               DELETE</a>
+               onclick="return confirm('Are you sure to delete this student ?')">DELETE</a>
             </td>
+            {% else %}
+            {% endif %}
          </tr> 
       </tbody>
    </table>
