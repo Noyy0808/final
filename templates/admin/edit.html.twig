@@ -7,6 +7,12 @@
 	<div class="container-fluid mt-3">
 		<h2 class="text-center mt-2">Edit Admin</h2>
 		<div class="margin-center">
+		  <div class="form-group">
+            {{ form_label (form.avatar) }}
+            <br>
+            {{ form_widget (form.avatar)
+               
+            }}
 		{{ form_start (form) }}
         
 		<div class="form-group">
@@ -49,6 +55,7 @@
                })
             }}
 		</div>
+		
 
 		</div>
 
