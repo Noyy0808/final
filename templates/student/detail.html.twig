@@ -4,8 +4,11 @@
 
 {% block body %}
 <div class="container">
+
    <h4 class="text-primary text-center">STUDENT MANAGER</h4>
+   {% if is_granted('ROLE_ADMIN')%}
    <a class="btn btn-outline-primary" href="{{ path('student_add') }}">ADD STUDENT</a>
+   {% endif %}
    <table class="table table-striped text-center">
       <thead>
          <tr>
